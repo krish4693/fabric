@@ -1,7 +1,9 @@
-"use client"
-import { Canvas } from "fabric";
+"use client";
+import { Canvas,Rect } from "fabric";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import { IconButton } from "@mui/material"; // MUI IconButton alternative
+import SquareIcon from "@mui/icons-material/Square"; // MUI SquareIcon alternative
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -23,8 +25,26 @@ export default function Home() {
     }
   }, []);
 
+  const addRectangle = () => {
+    if (canvas){
+    const rect = new Rect({
+    top: 100,
+    left: 50,
+    width: 100,
+    height: 60,
+    fill: "#084D42",
+    });
+    canvas.add(rect);
+    }
+    };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="App">
+      <div className="Toolbar darkmode">
+        <IconButton onClick={addRectangle} color="primary">
+          <SquareIcon />
+        </IconButton>
+      </div>
       <canvas id="canvas" ref={canvasRef} />
     </div>
   );
