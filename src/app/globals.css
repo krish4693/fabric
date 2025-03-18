@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #c7c4c4;
     --foreground: #ededed;
   }
 }
@@ -63,7 +63,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: var(--background-neutral-container);
+  background-color: gray;
   padding: 8px 8px;
   border-radius: 4px;
   position: fixed;
