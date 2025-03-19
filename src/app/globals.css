@@ -2,8 +2,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -20,7 +21,8 @@
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
+  background:rgb(192, 196, 192);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -63,7 +65,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background-color: gray;
+  background-color:rgb(94, 94, 94);
   padding: 8px 8px;
   border-radius: 4px;
   position: fixed;
@@ -75,3 +77,37 @@ body{
   }
 }
 
+.Settings {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: #111; /* Nearly black */
+  padding: 24px 8px;
+  border-radius: 10px;
+  text-align: left;
+  color: white;
+
+
+  &:empty {
+    padding: 0;
+  }
+}
+
+.Settings .MuiInputBase-input {
+  color: white;
+}
+
+.Settings .MuiInputBase-root {
+  color: white;
+}
+
+.Settings .MuiInputBase-root {
+  border: 1px solid white;
+  border-radius: 4px; /* Optional, for rounded corners */
+  padding: 4px 8px;   /* Optional, adjust inner spacing */
+  margin-top: 0;
+}

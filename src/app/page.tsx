@@ -6,6 +6,8 @@ import { colors, IconButton } from "@mui/material"; // MUI IconButton alternativ
 import SquareIcon from "@mui/icons-material/SquareOutlined"; // MUI SquareIcon alternative
 import CircleIcon from "@mui/icons-material/CircleOutlined"; // MUI SquareIcon alternative
 import Settings from "../components/Settings";
+
+
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [canvas, setCanvas] = useState<Canvas | null>(null);
