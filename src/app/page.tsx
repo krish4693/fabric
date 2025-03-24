@@ -1,10 +1,13 @@
 "use client";
-import { Canvas,Rect,Circle } from "fabric";
+import { Canvas, Rect, Circle } from "fabric";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
-import { IconButton } from "@mui/material"; // MUI IconButton alternative
-import SquareIcon from "@mui/icons-material/Square"; // MUI SquareIcon alternative
-import CircleIcon from "@mui/icons-material/Circle"; // MUI SquareIcon alternative
+import { colors, IconButton } from "@mui/material"; // MUI IconButton alternative
+import SquareIcon from "@mui/icons-material/SquareOutlined"; // MUI SquareIcon alternative
+import CircleIcon from "@mui/icons-material/CircleOutlined"; // MUI SquareIcon alternative
+import Settings from "../components/Settings"
+import Video from "../components/Video"
+
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -27,42 +30,45 @@ export default function Home() {
   }, []);
 
   const addRectangle = () => {
-    if (canvas){
-    const rect = new Rect({
-    top: 100,
-    left: 50,
-    width: 100,
-    height: 60,
-    fill: "#084D42",
-    });
-    canvas.add(rect);
+    if (canvas) {
+      const rect = new Rect({
+        top: 100,
+        left: 50,
+        width: 100,
+        height: 60,
+        fill: "green",
+      });
+      canvas.add(rect);
     }
-    };
+  };
 
-    const addCircle = () => {
-      if (canvas){
+  const addCircle = () => {
+    if (canvas) {
       const circle = new Circle({
-      top: 150,
-      left: 150,
-      radius: 50,
-      fill: "#084D42",
+        top: 150,
+        left: 150,
+        radius: 50,
+        fill: "red",
       });
       canvas.add(circle);
-      }
-      };
-    
+    }
+  };
+
 
   return (
     <div className="App">
       <div className="Toolbar darkmode">
         <IconButton onClick={addRectangle} color="primary">
-          <SquareIcon />
+          <SquareIcon sx={{color:'white'}} />
         </IconButton>
         <IconButton onClick={addCircle} color="primary">
-          <CircleIcon/>
+          <CircleIcon sx={{color:'white'}}/>
         </IconButton>
+      <Video canvas={canvas} canvasRef={canvasRef}/>
       </div>
       <canvas id="canvas" ref={canvasRef} />
+      <Settings canvas={canvas}/>
+
     </div>
   );
 }
