@@ -5,7 +5,8 @@ import { useRef, useState, useEffect } from "react";
 import { colors, IconButton } from "@mui/material"; // MUI IconButton alternative
 import SquareIcon from "@mui/icons-material/SquareOutlined"; // MUI SquareIcon alternative
 import CircleIcon from "@mui/icons-material/CircleOutlined"; // MUI SquareIcon alternative
-import Settings from "../components/Settings";
+import Settings from "../components/Settings"
+import Video from "../components/Video"
 
 
 export default function Home() {
@@ -63,9 +64,11 @@ export default function Home() {
         <IconButton onClick={addCircle} color="primary">
           <CircleIcon sx={{color:'white'}}/>
         </IconButton>
+      <Video canvas={canvas} canvasRef={canvasRef}/>
       </div>
       <canvas id="canvas" ref={canvasRef} />
       <Settings canvas={canvas}/>
+
     </div>
   );
 }
